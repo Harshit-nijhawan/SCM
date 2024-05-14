@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Your job portal description">
+        <meta name="keywords" content="job, portal, data science, engineer, analyst">
+        
+        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+        <title>Responsive Job Portal</title>
+        
+        <style>
+            :root {
+                --primarycolor:#4c50d3;
+                --secondarycolor: #ffce00;
+                --fontcolor: #lelele;
+                --whitecolor: #fff;
+                --greycolor: #e7e7e7;
+                --darkcolor: #5f5f5f;
+                --sofpurple: #e7e8ff;
+                --softblue: #c3e1ff;
+                --softyellow: #fff5cc;
+                --softred: #ffcbc8;
+            
+            }
+            
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                outline: none;
+                font-family: 'lato', sans-serif;
+            }
+            
+            body {
+                width: 100%;
+                height: 100vh;
+                display: flex;
+            }
+            
+            .sidebar {
+                width: 20%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: space-between;
+                padding: 2rem;
+                background-color: var(--primarycolor);
+                color: var(--whitecolor);
+                position: fixed;
+                left: 0;
+            }
+            
+            .logo {
+                letter-spacing: 2px;
+            }
+            
+            .menus {
+                display: flex;
+                flex-direction: column;
+                gap: 2rem;
+            }
+            
+            .menus a{
+                display: flex;
+                align-items: center;
+                color: var(--whitecolor);
+                text-decoration: none;
+            }
+            
+            .menus ion-icon {
+                margin-right: 0.5rem;
+            }
+            
+            .menus a:hover {
+                color: var(--secondarycolor);
+            }
+            
+            .profile {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 0.5rem;
+                padding: 1rem;
+                background-color: var(--whitecolor);
+                color: black;
+                border: none;
+                border-radius: 10px;
+                box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+                cursor: pointer;
+            }
+            
+            .profile:hover {
+                background-color: var(--secondarycolor);
+            }
+            
+            .profile-img {
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+            }
+            
+            .profile-name p {
+                font-size: 12px;
+            }
+            
+            .main {
+                width: calc(100% - 20% - 25%);
+                min-height: 100%;
+                min-width: 300px;
+                height: max-content;
+                display: flex;
+                position: relative;
+                flex-direction: column;
+                padding: 2rem 2%;
+                margin-left: 20%;
+                background-color: var(--sofpurple);
+                z-index: 1
+            
+            }
+            
+            .main-header {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+            }
+            
+            .menu-bar {
+                background-color: var(--whitecolor);
+                padding: 0.5rem;
+                border-radius: 20px;
+                display: none;
+            }
+            
+            .search {
+                width:100%;
+                display: flex;
+                justify-content: space-between;
+                border: none;
+                background-color: none;
+                border-radius: 20px;
+                padding: 0.5rem 1rem;
+                position: relative;
+                background-color: var(--whitecolor);
+            }
+            
+            .search input {
+                width:90%;
+                border: none;
+            }
+            
+            .btn-search {
+                position: absolute;
+                right: 0;
+                top: 0;
+                height: 100%;
+                padding: 0 5%;
+                border: none;
+                background-color: var(--primarycolor);
+                color: var(--whitecolor);
+                font-size: 18px;
+                border-radius: 20px;
+                box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+                cursor: pointer;
+            }
+            
+            .btn-search:hover {
+                background-color: var(--secondarycolor);
+                color: var(--fontcolor);
+            }
+            
+            .filter-wrapper {
+                margin: 1rem 0;
+                font-size: 14px;
+            }
+            
+            .filter {
+                display: flex;
+                gap: 1rem;
+                overflow-x: auto;
+                margin: 0.5rem 0;
+            }
+            
+            .btn-filter {
+                min-width: 110px;
+                padding: 0.5rem;
+                border-radius: 20px;
+                border: none;
+                background-color: var(--whitecolor);
+                cursor: pointer;
+            }
+            
+            .btn-filter:hover {
+                background-color: var(--primarycolor);
+                color: var(--whitecolor);
+                box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            }
+            
+            .sort {
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                gap: 0.5rem;
+            }
+            
+            .sort p {
+                font-size: 14px;
+            
+            }
+            
+            .sort-list select {
+                height: 1.5rem;
+                border-radius: 20px;
+                border: none;
+                margin-top: 0 0.5rem;
+            
+            }
+            
+            .wrapper {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                padding: 1rem 0;
+                gap: 1rem;
+                overflow-y: auto;
+            }
+            
+            .card {
+                display: flex;
+                flex-wrap: wrap;
+                flex-direction: row;
+                align-items: flex-start;
+                padding: 3%;
+                margin: 0 1%;
+                background-color: var(--whitecolor);
+                line-height: 1.5;
+                gap: 1.5rem;
+                box-shadow: rgba(0, 0, 0, 0.16px) 0px 1px 4px;
+                border-radius: 10px;
+                cursor: pointer;
+            }
+            
+            .card:hover {
+                box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            }
+            
+            .card-left {
+                width: 10%;
+                min-width: 50px;
+                display: flex;
+                justify-content: center;
+                border-radius: 20%;
+            }
+            
+            .card-left img {
+                width: 100%;
+                height: auto;
+                min-height: 60px;
+                padding: 1rem;
+            }
+            
+            .card-center {
+                width: 50%;
+            }
+            
+            .card-loc, .card-sub {
+                font-size: 13px;
+                color: var(--darkcolor);
+            }
+            
+            .card-sub {
+                display: flex;
+                flex-wrap: wrap;
+            }
+            
+            .card-sub p {
+                display: flex;
+                padding: 0 0.5rem 0 0;
+                align-items: center;
+            }
+            
+            .card-right {
+                width: 15%;
+            }
+            
+            .card-tag a {
+                color: var(--fontcolor);
+                font-size: 13px;
+            
+            }
+            
+            .card-salary {
+                padding: 0.5rem 0;
+                color: var(--primarycolor);
+            }
+            
+            .card-salary span {
+                color: var(--fontcolor);
+                font-size: 13px;
+            }
+            
+            .blue-bg {
+                background-color: var(--softblue);
+            }
+            
+            .yellow-bg {
+                background-color: var(--secondarycolor);
+            }
+            
+            .red-bg {
+                background-color: var(--softred);
+            }
+            
+            .purple-bg {
+                background-color: var(--sofpurple);
+            }
+            
+            .blue-bg {
+                background-color: var(--softblue);
+            }
+            
+            .detail {
+                width: 25%;
+                min-width: 250px;
+                height: 100%;
+                padding: 2rem;
+                position: fixed;
+                right: 0;
+                background-color: var(--whitecolor);
+                overflow: auto;
+                box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            }
+            
+            .close-detail {
+                display: none;
+            }
+            
+            .detail-header {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .detail-header img {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .divider {
+                width: 100%;
+                height: 1px;
+                background-color: var(--greycolor);
+                border: none;
+                margin: 1rem 0;
+            }
+            
+            .detail-desc {
+                line-height: 1.5;
+            }
+            
+            .about a {
+                margin: 0.5rem 0 0 0;
+                color: var(--primarycolor);
+                font-size: 14px;
+                text-decoration: none;
+                font-weight: 600;
+                cursor: pointer;
+            }
+            
+            .detail-btn {
+                display: flex;
+                gap: 1rem;
+                margin: 1rem 0;
+            }
+            
+            .btn-apply {
+                background-color: var(--primarycolor);
+                color: var(--whitecolor);
+                border: none;
+                padding: 10px 20px;
+                border-radius: 20px;
+                cursor: pointer;
+                
+            }
+            
+            .btn-save {
+                background-color: var(--secondarycolor);
+                border: none;
+                padding: 10px 20px;
+                border-radius: 20px;
+                cursor: pointer;
+            }
+            
+            .btn-apply:hover {
+                border: 1px solid var(--primarycolor);
+                background-color: transparent;
+                color: #4c50d3;
+               
+            }
+            
+            .btn-save:hover {
+                border: 1px solid var(--secondarycolor);
+                background-color: transparent;
+            
+            }
+            
+            .sidebar-active {
+                display: flex;
+                width: 220px;
+                z-index: 100;
+            }
+            
+            @media screen and (max-width:880px) {
+                .menu-bar {
+                    display: block;
+                }
+            
+                .sidebar {
+                    display: none;
+                }
+            
+                .main {
+                    width: calc(100%-40%);
+                    margin-left: 0;
+                }
+            
+                .detail {
+                    width: 40%;
+                }
+            
+            }
+            
+            @media screen and (max-width:770px) {
+                .main {
+                    width: 100%;
+            
+                }
+            
+                .detail {
+                    display: none;
+                }
+            
+                .detail-active {
+                    display: block;
+                    width: 100%;
+                    z-index: 100;
+                }
+            
+                .detail.active .close-detail {
+                    display: block;
+                    cursor: pointer;
+                }
+            }
+            
+            @media screen and (max-width:480px) {
+                .card-loc, .card-sub, .card-tag {
+                    display: none;
+                }
+            }
+        </style>
+    </head>
+<body>
+    <div class="sidebar">
+    <h1 class="logo">Job Place</h1>
+    <div class="menus">
+        <a href="#"><ion-icon name="home-outline"></ion-icon>Home</a>
+        <a href="ijob.html"><ion-icon name="newspaper-outline"></ion-icon>Find Jobs</a>
+        <a href="#"><ion-icon name="stats-chart-outline"></ion-icon>Performance</a>
+        <a href="bookmarks.html"><ion-icon name="bookmarks-outline"></ion-icon>Bookmarks</a>
+        <a href="Message.html"><ion-icon name="mail-unread-outline"></ion-icon>Message</a>
+        <a href="settings.html"><ion-icon name="settings-outline"></ion-icon>Setting</a>
+    </div>
+    <div class="profile">
+        <a href="myprofile.html"><img class="profile-img" src="J.jpg"></a>    
+        <div class="profile-name">
+            <h4>PROFILE</h4>
+            <p>click ON THE image</p>
+        </div>
+    </div>
+</div>
+
+<div class="main">
+    <div class="main-header">
+        <ion-icon class="menu-bar" name="menu-outline"></ion-icon>
+        <div class="search">
+            <input type="text" placeholder="search your best job here....">
+            <button class="btn-search"><ion-icon name="search-outline"></ion-icon></button>
+        </div>
+    </div>
+    <div class="filter-wrapper">
+        <p>Recommendation</p>
+        <div class="filter">
+            <a href="Data_Scientist.html"><button class="btn-filter">Data Scientist</button></a>
+            <a href="Data_Engineer.html"><button class="btn-filter">Data Engineer</button></a>
+            <a href="Data_Analyst.html"><button class="btn-filter">Data Analyst</button></a>
+            <a href="Data_Visualization.html"><button class="btn-filter">Data Visualization</button></a>
+            <a href="CRM_Analyst.html"><button class="btn-filter">CRM Analyst</button></a>
+        </div>
+    </div>
+    <div class="sort">
+        <p>Sort</p>
+        <div class="sort-list">
+            <select>
+                <option value="0">All</option>
+                <option value="1">Newest Post</option>
+                <option value="2">Oldest Post</option>
+                <option value="3">Most Relevent</option>
+                <option value="4">Highest Package</option>
+            </select>
+        </div>
+    </div>
+    <div class="wrapper">
+        <div class="card">
+            <div class="card-left blue-bg">
+                <img src="google.png">
+            </div>
+            <div class="card-center">
+                <h3>Google</h3>
+                <p class="card-detail">Data Science, Data Engineer</p>
+                <p class="card-loc"><ion-icon name="location-outline"></ion-icon>Abcd Street</p>
+                <div class="card-sub">
+                    <p><ion-icon name="today-outline"></ion-icon>1 min ago</p>
+                    <p><ion-icon name="hourglass-outline"></ion-icon>Full Time</p>
+                    <p><ion-icon name="people-outline"></ion-icon>200 Applicants</p>
+                </div>
+            </div>
+            <div class="card-right">
+                <div class="card-tag">
+                    <h5>Division</h5>
+                    <a href="#">Data Engineer</a>
+                </div>
+                <div class="card-salary">
+                    <p><b>$350k</b> <span>/ year</span></p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-left yellow-bg">
+                <img src="Instagram.png">
+            </div>
+            <div class="card-center">
+                <h3>Instagram</h3>
+                <p class="card-detail">Data Analyst, Product Analyst</p>
+                <p class="card-loc"><ion-icon name="location-outline"></ion-icon>Abcd Street</p>
+                <div class="card-sub">
+                    <p><ion-icon name="today-outline"></ion-icon>9 min ago</p>
+                    <p><ion-icon name="hourglass-outline"></ion-icon>Full Time</p>
+                    <p><ion-icon name="people-outline"></ion-icon>300 Applicants</p>
+                </div>
+            </div>
+            <div class="card-right">
+                <div class="card-tag">
+                    <h5>Division</h5>
+                    <a href="#">Data Science</a>
+                </div>
+                <div class="card-salary">
+                    <p><b>$300k</b> <span>/ year</span></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-left red-bg">
+                <img src="youtube.png">
+            </div>
+            <div class="card-center">
+                <h3>youtube</h3>
+                <p class="card-detail">Data Analyst, Product Analyst</p>
+                <p class="card-loc"><ion-icon name="location-outline"></ion-icon>Abcd Street</p>
+                <div class="card-sub">
+                    <p><ion-icon name="today-outline"></ion-icon>1 hour ago</p>
+                    <p><ion-icon name="hourglass-outline"></ion-icon>Full Time</p>
+                    <p><ion-icon name="people-outline"></ion-icon>150 Applicants</p>
+                </div>
+            </div>
+            <div class="card-right">
+                <div class="card-tag">
+                    <h5>Division</h5>
+                    <a href="#">software Engineer</a>
+                </div>
+                <div class="card-salary">
+                    <p><b>$400k</b> <span>/ year</span></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-left purple-bg">
+                <img src="apple.png">
+            </div>
+            <div class="card-center">
+                <h3>Apple</h3>
+                <p class="card-detail">Product Analyst, UI-UX Designer</p>
+                <p class="card-loc"><ion-icon name="location-outline"></ion-icon>Abcd Street</p>
+                <div class="card-sub">
+                    <p><ion-icon name="today-outline"></ion-icon>2 hour ago</p>
+                    <p><ion-icon name="hourglass-outline"></ion-icon>Full Time</p>
+                    <p><ion-icon name="people-outline"></ion-icon>70 Applicants</p>
+                </div>
+            </div>
+            <div class="card-right">
+                <div class="card-tag">
+                    <h5>Division</h5>
+                    <a href="#">Designer App</a>
+                </div>
+                <div class="card-salary">
+                    <p><b>$700k</b> <span>/ year</span></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-left blue-bg">
+                <img src="whatsapp.png">
+            </div>
+            <div class="card-center">
+                <h3>Whatsapp</h3>
+                <p class="card-detail">Customer Care, UI-UX Designer</p>
+                <p class="card-loc"><ion-icon name="location-outline"></ion-icon>Abcd Street</p>
+                <div class="card-sub">
+                    <p><ion-icon name="today-outline"></ion-icon>1 hour ago</p>
+                    <p><ion-icon name="hourglass-outline"></ion-icon>Full Time</p>
+                    <p><ion-icon name="people-outline"></ion-icon>180 Applicants</p>
+                </div>
+            </div>
+            <div class="card-right">
+                <div class="card-tag">
+                    <h5>Division</h5>
+                    <a href="#">Designer Applications</a>
+                </div>
+                <div class="card-salary">
+                    <p><b>$300k</b> <span>/ year</span></p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="detail">
+    <ion-icon class="close-detail" name="close-detail"></ion-icon>
+    <div class="detail-header">
+        <img src="google.png">
+        <h2>GOOGLE</h2>
+        <p>in partnership with</p>
+    </div>
+    <hr class="divider">
+    <div class="detail-desc">
+        <div class="about">
+            <h4>About Company</h4>
+            <p>Google LLC is an American multinational technology company focusing on artificial intelligence, online advertising, search engine technology, ...</p>
+            <a href="https://en.wikipedia.org/wiki/Google">Read more</a>
+        </div>
+        <hr class="divider">
+        <div class="qualification">
+            <h4>KEY POINTS</h4>
+            <ul>
+                <li> innovation</li>
+                <li> focus on the user</li>
+                <li> and doing the right thing</li>
+            </ul>
+        </div>
+    </div>
+    <hr class="divider">
+    <div class="detail-btn">
+        <button class="btn-apply">Apply Now</button>
+        <button class="btn-save">Save Job</button>
+    </div>
+</div>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".card").on("click", function () {
+                $(".detail h2").text($(this).find(".card-center h3").text());
+                $(".detail .about p").text($(this).find(".card-center p").text());
+                $(".detail").addClass("active");
+            });
+
+            $(".close-detail").on("click", function () {
+                $(".detail").removeClass("active");
+            });
+
+            $(".menu-bar").on("click", function () {
+                $(".sidebar").addClass("active");
+            });
+
+            $(".logo").on("click", function () {
+                $(".sidebar").removeClass("active");
+            });
+
+            $(".btn-apply").on("click", function () {
+                prompt("Enter your name");
+                
+                alert("Application submitted!");
+              
+            });
+
+            $(".btn-save").on("click", function () {
+                
+                alert("Job saved!");
+            });
+        });
+        $(document).ready(function() {
+            $(".card").on("click", function(){
+                $(".detail").addClass("active");
+            });
+        
+            $(".close-detail").on("click", function(){
+                $(".detail").removeClass("active");
+            });
+        
+            $(".menu-bar").on("click", function(){
+                $(".sidebar").addClass("active");
+            });
+        
+            $(".logo").on("click", function(){
+                $(".sidebar").removeClass("active");
+            });
+        });
+    </script>
+
+
+
+
+</body>
+
+
+</html>

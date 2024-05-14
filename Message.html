@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #e7e8ff;;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 600px;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px #4c50d3;
+            text-align: center;
+            
+        }
+
+        
+
+        h1 {
+            color:#4c50d3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h1 i {
+            margin-right: 10px;
+        }
+
+        form {
+            display: grid;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            color: #555;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            outline: none;
+        }
+
+        button {
+            padding: 12px;
+            background-color:#4c50d3;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: powderblue;
+        }
+
+        #response {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #ff5e62;
+        }
+    </style>
+    <title>Message Us</title>
+</head>
+<body>
+
+<div class="container">
+    <h1><i class="fas fa-home"></i> Contact Us</h1>
+    <form id="messageForm">
+        <label for="name">Your Name:</label>
+        <input type="text" id="name" name="name" required onkeydown="if(event.keyCode==13){document.getElementById('email').focus();return false;}">
+
+        <label for="email">Your Email:</label>
+        <input type="email" id="email" name="email" required onkeydown="if(event.keyCode==13){document.getElementById('message').focus();return false;}">
+
+        <label for="message">Your Message:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+
+        <button type="button" onclick="submitForm()">Send Message</button>
+    </form>
+
+    <div id="response"></div>
+</div>
+
+<script>
+    function submitForm() {
+        var name = document.getElementById('name').value;
+        var email = document.getElementById('email').value;
+        var message = document.getElementById('message').value;
+
+        var responseElement = document.getElementById('response');
+        responseElement.innerHTML = 'Sending...';
+
+        setTimeout(function () {
+            responseElement.innerHTML = `Message sent successfully! 
+                <br> Name: ${name} 
+                <br> Email: ${email} 
+                <br> Message: ${message}`;
+        }, 1500);
+    }
+</script>
+
+</body>
+</html>

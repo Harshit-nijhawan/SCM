@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Visualization</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(to right top, #9c6cd6, rgb(138, 104, 146));
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: #4c50d3;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .home-icon {
+            color: black;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            animation: fadeIn .5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        p {
+            font-size: 1rem;
+            line-height: 1.5;
+            text-align: center;
+            max-width: 600px;
+            margin-bottom: 40px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .col {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 80%;
+        }
+
+        .card-container {
+            display: flex;
+            gap: 20px;
+        }
+
+        .card {
+            position: relative;
+            width: 200px;
+            height: 210px;
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+
+        .card-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.5s;
+            padding: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .card:hover .card-overlay {
+            opacity: 1;
+        }
+
+        .card h5 {
+            color: #fff;
+            margin: 0;
+            font-size: 1.2rem;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+
+        .card:hover h5 {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <a href="job.html"><span class="home-icon" onclick="goToMainPage">&#8962;</span></a>
+    </div>
+
+    <h1>Data Visualization</h1>
+    <p>Data visualization is a powerful tool in the hands of a data scientist. It involves creating graphical representations of data to uncover patterns, trends, and insights. These visualizations, ranging from charts and graphs to interactive dashboards, help communicate complex information in a clear and understandable way.</p>
+    <div class="col">
+        <div class="card-container">
+            <div class="card card1">
+                <img src="Interactive_Charts.gif">
+                <div class="card-overlay">
+                    <h5>Interactive Charts</h5>
+                </div>
+            </div>
+            <div class="card card2">
+                <img src="Data_Trends.jpg">
+                <div class="card-overlay">
+                    <h5>Data Trends</h5>
+                </div>
+            </div>
+            <div class="card card3">
+                <img src="Interactive_dashboards.jpg">
+                <div class="card-overlay">
+                    <h5>Interactive Dashboards</h5>
+                </div>
+            </div>
+            <div class="card card4">
+                <img src="Data_storytelling.jpg">
+                <div class="card-overlay">
+                    <h5>Data Storytelling</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function goToMainPage() {
+            window.location.href = 'main.html';
+        }
+    </script>
+</body>
+
+</html>

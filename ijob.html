@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        background-image: url("https://i.pinimg.com/originals/bb/51/f7/bb51f7930bcd0c21b5e6de58ae2005a6.jpg");
+        background-size: cover;
+    }
+    
+    h1 {
+        color: rgb(255, 0, 0);
+        text-align: center;
+        font-size: 60px;
+        font-family: 'Times New Roman', Times, serif;
+        background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS95LYR1YwzavMkK8ZjwDwauhW7vUMU_FFsWg&usqp=CAU");
+    }
+    .blog {
+        width:100%;
+        height: auto;
+        text-align: center;
+        padding: 5rem 1rem;
+    }
+    
+    .blog-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+        padding: 1rem;
+    }
+    
+    .blog-card {
+        width: 300px;
+        height: auto;
+        margin: 1rem;
+        box-shadow: 0 1px 6px 0 rgb(49 53 59 / 12%);
+        cursor: pointer;
+    
+    }
+    
+    .blog-image {
+        width: 100%;
+        height:150px;
+        object-fit: cover;
+        
+    }
+    
+    .blog-detail {
+        padding: 20px;
+    
+    }
+    
+    .blog-datail span {
+        color: var(--yellowcolor);
+        font-size: 0.7rem;
+    
+    
+    }
+    
+    .blog-deatil h4 {
+         padding: 10px 0;
+    }
+    
+    .divider {
+        margin: 1rem 0;
+        border :0.5 solid var(--greycolor);
+    }
+    
+    .blog-more {
+        color: var(--primarycolor);
+        text-decoration: none;
+        font-size: 0.9rem;
+        text-align: center;
+    }
+    
+    .blog-card:hover {
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    }
+</style>
+<body>
+    <section>
+        <h1 class="section-title">JOBS</h1>
+        <p>CLICK ON READ MORE TO GET FURTHER MORE INFORMATION ABOUT SPECIFIC COMPANY !</p>
+        <div class="blog-wrapper">
+            <div class="blog-card">
+                <img class="blog-image" src="https://cio.eletsonline.com/wp-content/uploads/2021/04/Larsen-Toubro-Infotech-1280x720.jpg">
+                <div class="blog-detail">
+                   
+                    <h4>LARSEN & TOUBRO</h4>
+                    <p>L&T Valves is a leader in flow-control solutions for critical services.</p>
+                    <hr class="divider">
+                    <a href="https://www.larsentoubro.com/" class="blog-more">Read more</a>
+                </div>
+            </div>
+            <div class="blog-card">
+                <img class="blog-image" src="https://centaur-wp.s3.eu-central-1.amazonaws.com/designweek/prod/content/uploads/2016/04/05160133/hp-logo-redesign_640.jpg">
+                <div class="blog-detail">
+                    
+                    <h4>HEWLETT PACK</h4>
+                    <p>Learn about HP printers, laptops, desktops and more at the Official HP® Website.</p>
+                    <hr class="divider">
+                    <a href="https://www.hp.com/in-en/home.html" class="blog-more">Read more</a>
+                </div>
+            </div>
+            <div class="blog-card">
+                <img class="blog-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBXVDEyxGGiZWlzJIV4roTnB7oRqRhygpCJA&usqp=CAU">
+                <div class="blog-detail">
+                  
+                    <h4>INFOSYS</h4>
+                    <p>Infosys is a global leader in next-generation digital services and consulting.</p>
+                    <hr class="divider">
+                    <a href="https://www.infosys.com/" class="blog-more">Read more</a>
+                </div>
+            </div>
+            
+        <div class="blog-wrapper">
+            <div class="blog-card">
+                <img class="blog-image" src="data:image/jpeg;base64,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">
+                <div class="blog-detail">
+                    
+                    <h4>INTEL</h4>
+                    <p>Intel's innovation in cloud computing, data center, Internet of Things, and PC solutions is powering the smart and connected digital world we live in.</p>
+                    <hr class="divider">
+                    <a href="https://www.intel.com/content/www/us/en/homepage.html" class="blog-more">Read more</a>
+                </div>
+            </div>
+            <div class="blog-card">
+                <img class="blog-image" src="data:image/jpeg;base64,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">
+                <div class="blog-detail">
+                    
+                    <h4>APPLE</h4>
+                    <p>Discover the innovative world of Apple and shop everything iPhone, iPad, Apple Watch, Mac,ETC.</p>
+                    <hr class="divider">
+                    <a href="https://www.apple.com/in/" class="blog-more">Read more</a>
+                </div>
+            </div>
+            <div class="blog-card">
+                <img class="blog-image" src="https://images.samsung.com/is/image/samsung/assets/in/about-us/brand/logo/mo/256_144_4.png?$512_N_PNG$">
+                <div class="blog-detail">
+                    
+                    <h4>SAMSUNG</h4>
+                    <p>Samsung helps you discover a wide range of home electronics with cutting-edge technology including smartphones, tablets, TVs, home appliances and more.</p>
+                    <hr class="divider">
+                    <a href="https://www.samsung.com/in/" class="blog-more">Read more</a>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+    
+</body>
+</html>

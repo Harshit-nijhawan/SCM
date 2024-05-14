@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Scientist</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(to right top, #9c6cd6, rgb(138, 104, 146));
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            padding-top: 50px;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: #4c50d3;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .home-icon {
+            color:black;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1rem;
+            line-height: 1.5;
+            text-align: center;
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
+
+        .col {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 80%;
+        }
+
+        .card-container {
+            display: flex;
+            gap: 20px;
+        }
+
+        .card {
+            position: relative;
+            width: 200px;
+            height: 210px;
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+
+        .card:hover img {
+            transform: scale(1.2);
+        }
+
+        .card-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.5s;
+            padding: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .card:hover .card-overlay {
+            opacity: 1;
+        }
+
+        .card h5 {
+            color: #fff;
+            margin: 0;
+            font-size: 1.2rem;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+
+        .card:hover h5 {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <a href="job.html"><span class="home-icon" onclick="goToMainPage">&#8962;</span></a>
+    </div>
+
+    <h1>Data Scientist</h1>
+    <p>A Data Scientist is a professional who utilizes a combination of statistical, mathematical, and programming skills to extract valuable insights and knowledge from large sets of data. These insights are crucial for informing business decisions, solving complex problems, and discovering trends that may not be immediately apparent. The role of a data scientist involves various tasks, including data cleaning and preprocessing, exploratory data analysis, and the development of machine learning models.</p>
+    <div class="col">
+        <div class="card-container">
+            <div class="card card1">
+                <img src="Dr_RL_Shankar.jpg">
+                <div class="card-overlay">
+                    <h5>Dr. R.L. Shankar</h5>
+                </div>
+            </div>
+            <div class="card card2">
+                <img src="Randy_lao.jpg">
+                <div class="card-overlay">
+                    <h5>Randy Lao</h5>
+                </div>
+            </div>
+            <div class="card card3">
+                <img src="Kate_Starchnyi.jpg">
+                <div class="card-overlay">
+                    <h5>Kate Starchnyi</h5>
+                </div>
+            </div>
+            <div class="card card4">
+                <img src="Dr_Pulak_Ghosh.jpg">
+                <div class="card-overlay">
+                    <h5>Dr. Pulak Ghosh</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function goToMainPage() {
+            window.location.href = "";
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <nav>
+        <div class="nav__content">
+            <div class="logo"><a href="#">JOB PLACE</a></div>
+            <label for="check" class="checkbox">
+                <i class="ri-menu-line"></i>
+            </label>
+            <input type="checkbox" name="check" id="check">
+            <ul>
+                <li><a href="job.html">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Resume</a></li>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <section class="section">
+        <div class="section__container">
+            <div class="content">
+                <p class="subtitle">HELLO</p>
+                <h1 class="title">
+                    WE'RE <br> <span>WEB DEVELOPER,<br>SALIL THAKUR<br>&<br>HARSHIT NIJHAWAN</span>
+                </h1>
+                <p class="description">
+                    A skilled web developer possesses the expertise to design, build, and maintain websites, ensuring optimal functionality and user experience. Proficient in a variety of programming languages such as HTML, CSS, JavaScript, and often frameworks like React or Angular, a web developer is adept at translating design concepts into responsive, interactive, and visually appealing web applications.
+                </p>
+                <div class="action__btns">
+                    <button class="hire__me" onclick="showMessage('Hired')">Hire me</button>
+                    <button class="Portfolio" onclick="showMessage('Portfolio is here!')">Portfolio</button>
+                </div>
+            </div>
+            <div class="image">
+                <img src="mee.jpg" alt="profile">
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function showMessage(message) {
+            alert(message);
+        }
+    </script>
+</body>
+</html>
